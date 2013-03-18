@@ -207,7 +207,7 @@ In :term:`replication`, when MongoDB writes to a collection on the
 which is a special collection in the ``local`` database.  Therefore,
 MongoDB must lock both the collection's database and the ``local``
 database. The :program:`mongod` must lock both databases at the same
-time keep both data consistent and ensure that write operations, even
+time to keep the data consistent and to ensure that write operations, even
 with replication, are "all-or-nothing" operations.
 
 How does concurrency affect secondaries?
@@ -215,7 +215,7 @@ How does concurrency affect secondaries?
 
 In :term:`replication`, MongoDB does not apply writes serially to
 :term:`secondaries <secondary>`. Secondaries collect oplog entries in
-batches and then apply those batches in parallel. Secondaries do not
+batches and then all secondaries apply those batches in parallel. Secondaries do not
 allow reads while applying the write operations, and apply write
 operations in the order that they appear in the oplog.
 
